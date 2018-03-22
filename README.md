@@ -1,2 +1,2 @@
 # Cours Architecture .Net
-WPF Formation - IIA
+Formation - IIA
