@@ -1,0 +1,21 @@
+﻿<Application x:Class="TP1.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TP1"
+             xmlns:converters="clr-namespace:CoursWPF1.Converters"
+             StartupUri="MainWindow.xaml">
+  <Application.Resources>
+
+    <!-- Permet de fusioner un dictrionnaire de ressource créé dans un fichier externe -->
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Styles.xaml"/>
+      </ResourceDictionary.MergedDictionaries>
+
+      <!-- On peut instancier des convetters dans le dictionnaire de ressources de l'application -->
+      <converters:BoolToVisibilityConverter x:Key="BoolToVisibilitySharedConverter"/>
+      <converters:BoolToBrushConverter x:Key="BoolToBrushSharedConverter"/>
+    </ResourceDictionary>
+
+  </Application.Resources>
+</Application>
