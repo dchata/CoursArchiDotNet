@@ -74,7 +74,9 @@ namespace CoursWPF1.ViewModels
         }
         private void RemoveItem_Execute(object parameter)
         {
-            if(SelectedItem != null)
+            if (parameter is Person personToDelete)
+                Persons.Remove(personToDelete);
+            else if (SelectedItem != null)
                 Persons.Remove(SelectedItem);
         }
 
