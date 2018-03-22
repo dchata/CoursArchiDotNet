@@ -1,4 +1,5 @@
 ﻿using CoursWPF1.Models;
+using CoursWPF1.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +22,18 @@ namespace CoursWPF1
     /// </summary>
     public partial class MainWindow : Window
     {
-        //ViewModels.ViewModelMain _VM;
-        ViewModels.ViewModelPeople _VM;
         public MainWindow()
         {
-            //_VM = new ViewModels.ViewModelMain();
-            _VM = new ViewModels.ViewModelPeople();
-            DataContext = _VM;
+            DataContext = new ViewModels.ViewModelMain();
             InitializeComponent();
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (tItemPeople.IsSelected)
+                ((ViewModelMain)DataContext).SelectedViewModel = ((ViewModelMain)DataContext).VMPeople;
+            else if (tItemPersonType.IsSelected)
+                ((ViewModelMain)DataContext).SelectedViewModel = ((ViewModelMain)DataContext).VMPersonType;
         }
     }
 }

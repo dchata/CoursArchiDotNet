@@ -15,37 +15,68 @@
 
     <Menu>
       <MenuItem Header="Fichier"/>
-      <MenuItem Header="Edition"/>
-      <MenuItem Header="Ajouter" Command="{Binding AddItemCommand}"/>
-      <MenuItem Header="Supprimer" Command="{Binding RemoveItemCommand}"/>
+      <MenuItem Header="Ajouter" Command="{Binding SelectedViewModel.AddItemCommand}"/>
+      <MenuItem Header="Supprimer" Command="{Binding SelectedViewModel.RemoveItemCommand}"/>
     </Menu>
 
-    <Grid Grid.Row="1">
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*"/>
-        <ColumnDefinition Width="Auto"/>
-      </Grid.ColumnDefinitions>
+    <TabControl Grid.Row="1" SelectionChanged="TabControl_SelectionChanged">
+      <TabItem x:Name="tItemPeople" Header="Personnes" DataContext="{Binding VMPeople}">
+        <ListBox ItemsSource="{Binding ItemsSource}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+          <ListBox.ItemTemplate>
+            <DataTemplate>
+              <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-      <ListBox ItemsSource="{Binding Persons}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
-        <ListBox.ItemTemplate>
-          <DataTemplate>
-            <StackPanel>
-              <ToggleButton x:Name="toggleBEnabled" Grid.Column="1" Content="Modifier" Style="{StaticResource ToggleButtonStyleRotateU90}"/>
+                <StackPanel>
+                  <ToggleButton x:Name="toggleBEnabled" Grid.Column="1" Content="Modifier" Style="{StaticResource ToggleButtonStyleRotateU90}"/>
 
-              <StackPanel>
-                <TextBlock Text="{Binding Lastname}" Style="{StaticResource TextBlockListBoxItemRed}"/>
-                <TextBlock Text="{Binding Firstname}" Style="{StaticResource TextBlockListBoxItem}"/>
-              </StackPanel>
+                  <StackPanel>
+                    <TextBlock Text="{Binding Lastname}" Style="{StaticResource TextBlockListBoxItemRed}"/>
+                    <TextBlock Text="{Binding Firstname}" Style="{StaticResource TextBlockListBoxItem}"/>
+                  </StackPanel>
 
-              <StackPanel Visibility="{Binding Path=IsChecked, ElementName=toggleBEnabled, Converter={StaticResource BoolToVisibilitySharedConverter}}">
-                <TextBox Text="{Binding Lastname}"/>
-                <TextBox Text="{Binding Firstname}"/>
-                <Button Content="Supprimer" Width="100" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" CommandParameter="{Binding}"/>
-              </StackPanel>
-            </StackPanel>
-          </DataTemplate>
-        </ListBox.ItemTemplate>
-      </ListBox>
-    </Grid>
+                  <StackPanel Visibility="{Binding Path=IsChecked, ElementName=toggleBEnabled, Converter={StaticResource BoolToVisibilitySharedConverter}}">
+                    <TextBox Text="{Binding Lastname}"/>
+                    <TextBox Text="{Binding Firstname}"/>
+                    <Button Content="Supprimer" Width="100" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" CommandParameter="{Binding}"/>
+                  </StackPanel>
+                </StackPanel>
+              </Grid>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </TabItem>
+
+      <TabItem x:Name="tItemPersonType" Header="Types de personne" DataContext="{Binding VMPersonType}">
+        <ListBox ItemsSource="{Binding ItemsSource}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+          <ListBox.ItemTemplate>
+            <DataTemplate>
+              <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                  <ToggleButton x:Name="toggleBEnabled" Grid.Column="1" Content="Modifier" Style="{StaticResource ToggleButtonStyleRotateU90}"/>
+
+                  <StackPanel>
+                    <TextBlock Text="{Binding Name}" Style="{StaticResource TextBlockListBoxItemRed}"/>
+                  </StackPanel>
+
+                  <StackPanel Visibility="{Binding Path=IsChecked, ElementName=toggleBEnabled, Converter={StaticResource BoolToVisibilitySharedConverter}}">
+                    <TextBox Text="{Binding Name}"/>
+                    <Button Content="Supprimer" Width="100" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" CommandParameter="{Binding}"/>
+                  </StackPanel>
+                </StackPanel>
+              </Grid>
+            </DataTemplate>
+          </ListBox.ItemTemplate>
+        </ListBox>
+      </TabItem>
+    </TabControl>
   </Grid>
 </Window>

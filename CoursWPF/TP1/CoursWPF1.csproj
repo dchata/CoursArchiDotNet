@@ -69,9 +69,12 @@
     <Compile Include="Core\DelegateCommand.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\PersonType.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewModels\ViewModelList.cs" />
     <Compile Include="ViewModels\ViewModelMain.cs" />
     <Compile Include="ViewModels\ViewModelPeople.cs" />
+    <Compile Include="ViewModels\ViewModelPersonType.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
