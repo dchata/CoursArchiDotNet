@@ -40,7 +40,7 @@
               <StackPanel Visibility="{Binding Path=IsChecked, ElementName=toggleBEnabled, Converter={StaticResource BoolToVisibilitySharedConverter}}">
                 <TextBox Text="{Binding Lastname}"/>
                 <TextBox Text="{Binding Firstname}"/>
-                <Button Content="Supprimer" Width="100" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}"/>
+                <Button Content="Supprimer" Width="100" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" CommandParameter="{Binding}"/>
               </StackPanel>
             </StackPanel>
           </DataTemplate>
