@@ -48,14 +48,18 @@ namespace MVVMLib.Controls
 
         private static void MultiSelector_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if (sender is MultiSelector multiSelector && GetSelectedItems(multiSelector) is IList selectedItems)
+            try
             {
-                foreach (object item in multiSelector.SelectedItems.Cast<object>().Except(selectedItems.Cast<object>()).ToList())
-                    selectedItems.Add(item);
+                if (sender is MultiSelector multiSelector && GetSelectedItems(multiSelector) is IList selectedItems)
+                {
+                    foreach (object item in multiSelector.SelectedItems.Cast<object>().Except(selectedItems.Cast<object>()).ToList())
+                        selectedItems.Add(item);
 
-                foreach (object item in selectedItems.Cast<object>().Except(multiSelector.SelectedItems.Cast<object>()).ToList())
-                    selectedItems.Remove(item);
+                    foreach (object item in selectedItems.Cast<object>().Except(multiSelector.SelectedItems.Cast<object>()).ToList())
+                        selectedItems.Remove(item);
+                }
             }
+            catch (System.Exception) { }
         }
         #endregion
 
