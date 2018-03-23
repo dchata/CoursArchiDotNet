@@ -69,9 +69,20 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PersonType.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="TemplateSelector\ViewModelTemplateSelector.cs" />
     <Compile Include="ViewModels\ViewModelMain.cs" />
     <Compile Include="ViewModels\ViewModelPeople.cs" />
     <Compile Include="ViewModels\ViewModelPersonType.cs" />
+    <Compile Include="Views\ListPersonTypes.xaml.cs">
+      <DependentUpon>ListPersonTypes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListPeople.xaml.cs">
+      <DependentUpon>ListPeople.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,6 +96,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListPersonTypes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ListPeople.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

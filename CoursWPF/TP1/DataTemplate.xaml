@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CoursWPF1"
+                    xmlns:views="clr-namespace:CoursWPF1.Views"
+                    xmlns:viewModels="clr-namespace:CoursWPF1.ViewModels">
+
+  <DataTemplate DataType="{x:Type viewModels:ViewModelPeople}" x:Key="ViewModelPeopleTemplate">
+    <views:ListPeople/>
+  </DataTemplate>
+
+  <DataTemplate DataType="{x:Type viewModels:ViewModelPersonType}" x:Key="ViewModelPersonTypeTemplate">
+    <views:ListPersonTypes/>
+  </DataTemplate>
+
+</ResourceDictionary>
