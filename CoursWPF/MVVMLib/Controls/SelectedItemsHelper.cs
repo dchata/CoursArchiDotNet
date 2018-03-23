@@ -42,6 +42,8 @@ namespace MVVMLib.Controls
                 multiSelector.SelectionChanged -= MultiSelector_SelectionChanged;
                 multiSelector.SelectionChanged += MultiSelector_SelectionChanged;
             }
+            else if(sender is MultiSelector multi && (e.NewValue == null || e.NewValue == DependencyProperty.UnsetValue))
+                multi.SelectionChanged -= MultiSelector_SelectionChanged;
         }
 
         private static void MultiSelector_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

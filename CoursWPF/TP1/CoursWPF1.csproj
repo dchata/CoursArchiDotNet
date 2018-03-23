@@ -76,6 +76,9 @@
     <Compile Include="Views\DataGridPeople.xaml.cs">
       <DependentUpon>DataGridPeople.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DataGridPersonTypes.xaml.cs">
+      <DependentUpon>DataGridPersonTypes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ListPersonTypes.xaml.cs">
       <DependentUpon>ListPersonTypes.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DataGridPeople.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DataGridPersonTypes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
