@@ -15,8 +15,8 @@
     </Grid.RowDefinitions>
     <Menu>
       <MenuItem Header="Fichier">
-        <MenuItem Header="Afficher personnes" Command="{Binding OpenTabItemCommand}" CommandParameter="{x:Type viewModels:ViewModelPeople}"/>
-        <MenuItem Header="Afficher types de personnes" Command="{Binding OpenTabItemCommand}" CommandParameter="{x:Type viewModels:ViewModelPersonType}"/>
+        <MenuItem Header="Afficher personnes" Command="{Binding AddItemCommand}" CommandParameter="{x:Type viewModels:ViewModelPeople}"/>
+        <MenuItem Header="Afficher types de personnes" Command="{Binding AddItemCommand}" CommandParameter="{x:Type viewModels:ViewModelPersonType}"/>
         <MenuItem Header="Fermer l'onglet" Command="{Binding RemoveItemCommand}"/>
       </MenuItem>
       <MenuItem Header="Edition">
