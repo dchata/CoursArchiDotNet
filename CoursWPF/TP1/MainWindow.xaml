@@ -1,9 +1,10 @@
-﻿<Window x:Class="CoursWPF1.MainWindow"
+﻿<Controls:MetroWindow x:Class="CoursWPF1.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:CoursWPF1"
         xmlns:templateSelectors="clr-namespace:CoursWPF1.TemplateSelector"
         xmlns:viewModels="clr-namespace:CoursWPF1.ViewModels"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="Cours WPF 1" 
         Height="450" 
         Width="800">
@@ -31,4 +32,4 @@
       </TabControl.ContentTemplateSelector>
     </TabControl>
   </Grid>
-</Window>
+</Controls:MetroWindow>
