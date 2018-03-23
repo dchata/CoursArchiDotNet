@@ -3,19 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:CoursWPF1"
         xmlns:templateSelectors="clr-namespace:CoursWPF1.TemplateSelector"
+        xmlns:viewModels="clr-namespace:CoursWPF1.ViewModels"
         Title="Cours WPF 1" 
         Height="450" 
         Width="800">
-
 
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
-
     <Menu>
       <MenuItem Header="Fichier">
+        <MenuItem Header="Afficher personnes" Command="{Binding OpenTabItemCommand}" CommandParameter="{x:Type viewModels:ViewModelPeople}"/>
+        <MenuItem Header="Afficher types de personnes" Command="{Binding OpenTabItemCommand}" CommandParameter="{x:Type viewModels:ViewModelPersonType}"/>
         <MenuItem Header="Fermer l'onglet" Command="{Binding RemoveItemCommand}"/>
       </MenuItem>
       <MenuItem Header="Edition">
@@ -28,63 +29,6 @@
       <TabControl.ContentTemplateSelector>
         <templateSelectors:ViewModelTemplateSelector/>
       </TabControl.ContentTemplateSelector>
-        <!--<TabItem x:Name="tItemPeople" Header="Personnes" DataContext="{Binding VMPeople}">
-        <ListBox ItemsSource="{Binding ItemsSource}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
-          <ListBox.ItemTemplate>
-            <DataTemplate>
-              <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*"/>
-                  <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
-                <StackPanel>
-                  <ToggleButton x:Name="toggleBEnabled" Grid.Column="1" Content="Modifier" Style="{StaticResource ToggleButtonStyleRotateU90}"/>
-
-                  <StackPanel>
-                    <TextBlock Text="{Binding Lastname}" Style="{StaticResource TextBlockListBoxItemRed}"/>
-                    <TextBlock Text="{Binding Firstname}" Style="{StaticResource TextBlockListBoxItem}"/>
-                  </StackPanel>
-
-                  <StackPanel Visibility="{Binding Path=IsChecked, ElementName=toggleBEnabled, Converter={StaticResource BoolToVisibilitySharedConverter}}">
-                    <TextBox Text="{Binding Lastname}"/>
-                    <TextBox Text="{Binding Firstname}"/>
-                    <Button Content="Supprimer" Width="100" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" CommandParameter="{Binding}"/>
-                  </StackPanel>
-                </StackPanel>
-              </Grid>
-            </DataTemplate>
-          </ListBox.ItemTemplate>
-        </ListBox>
-      </TabItem>
-
-      <TabItem x:Name="tItemPersonType" Header="Types de personne" DataContext="{Binding VMPersonType}">
-        <ListBox ItemsSource="{Binding ItemsSource}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
-          <ListBox.ItemTemplate>
-            <DataTemplate>
-              <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*"/>
-                  <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
-                <StackPanel>
-                  <ToggleButton x:Name="toggleBEnabled" Grid.Column="1" Content="Modifier" Style="{StaticResource ToggleButtonStyleRotateU90}"/>
-
-                  <StackPanel>
-                    <TextBlock Text="{Binding Name}" Style="{StaticResource TextBlockListBoxItemRed}"/>
-                  </StackPanel>
-
-                  <StackPanel Visibility="{Binding Path=IsChecked, ElementName=toggleBEnabled, Converter={StaticResource BoolToVisibilitySharedConverter}}">
-                    <TextBox Text="{Binding Name}"/>
-                    <Button Content="Supprimer" Width="100" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" CommandParameter="{Binding}"/>
-                  </StackPanel>
-                </StackPanel>
-              </Grid>
-            </DataTemplate>
-          </ListBox.ItemTemplate>
-        </ListBox>
-      </TabItem>-->
     </TabControl>
   </Grid>
 </Window>
