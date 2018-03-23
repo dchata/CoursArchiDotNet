@@ -66,12 +66,9 @@
     </ApplicationDefinition>
     <Compile Include="Converters\BoolToBrushConverter.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
-    <Compile Include="Core\DelegateCommand.cs" />
-    <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PersonType.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="ViewModels\ViewModelList.cs" />
     <Compile Include="ViewModels\ViewModelMain.cs" />
     <Compile Include="ViewModels\ViewModelPeople.cs" />
     <Compile Include="ViewModels\ViewModelPersonType.cs" />
@@ -118,6 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MVVMLib\MVVMLib.csproj">
+      <Project>{646c5df4-b705-4f46-9d97-3bf397ea9be0}</Project>
+      <Name>MVVMLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

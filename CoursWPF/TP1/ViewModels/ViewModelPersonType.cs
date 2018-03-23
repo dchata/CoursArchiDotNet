@@ -1,4 +1,6 @@
 ﻿using CoursWPF1.Models;
+using MVVMLib.Core;
+using MVVMLib.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -5,16 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoursWPF1.Models
+namespace MVVMLib.ViewModels
 {
-    public class PersonType : ObservableObject
+    public abstract class ViewModelBase : ObservableObject
     {
         #region Fields
-        private string _Name;
+        private object _Header;
         #endregion
 
         #region Properties
-        public string Name { get => _Name; set => SetProperty(nameof(Name), ref _Name, value); }
+        public object Header { get => _Header; protected set => SetProperty(nameof(Header), ref _Header, value); }
         #endregion
     }
 }

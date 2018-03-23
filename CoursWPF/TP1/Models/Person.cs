@@ -1,4 +1,4 @@
-﻿using CoursWPF1.Core;
+﻿using MVVMLib.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
