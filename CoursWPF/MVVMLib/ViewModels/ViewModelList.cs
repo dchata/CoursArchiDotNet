@@ -1,5 +1,6 @@
 ﻿using MVVMLib.Core;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace MVVMLib.ViewModels
 {
@@ -55,10 +56,11 @@ namespace MVVMLib.ViewModels
         {
             if (parameter is T itemToDelete)
                 ItemsSource.Remove(itemToDelete);
-            else if (SelectedItem != null)
-                ItemsSource.Remove(SelectedItem);
+            else if (SelectedItems.Any())
+                foreach (T item in SelectedItems.ToList())
+                    ItemsSource.Remove(SelectedItem);
         }
-        protected virtual bool RemoveItem_CanExecute(object parameter) => SelectedItem != null || parameter is T;
+        protected virtual bool RemoveItem_CanExecute(object parameter) => SelectedItems.Any() || parameter is T;
         #endregion
         #endregion
     }

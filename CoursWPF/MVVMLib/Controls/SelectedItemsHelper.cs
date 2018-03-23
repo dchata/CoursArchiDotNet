@@ -49,14 +49,10 @@ namespace MVVMLib.Controls
             if (sender is MultiSelector multiSelector && GetSelectedItems(multiSelector) is IList selectedItems)
             {
                 foreach (object item in multiSelector.SelectedItems.Cast<object>().Except(selectedItems.Cast<object>()).ToList())
-                {
                     selectedItems.Add(item);
-                }
 
                 foreach (object item in selectedItems.Cast<object>().Except(multiSelector.SelectedItems.Cast<object>()).ToList())
-                {
                     selectedItems.Remove(item);
-                }
             }
         }
         #endregion
