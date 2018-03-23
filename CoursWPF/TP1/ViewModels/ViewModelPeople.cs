@@ -13,9 +13,18 @@ namespace CoursWPF1.ViewModels
 {
     public class ViewModelPeople : ViewModelList<Person>
     {
+        #region Fields
+        private ViewModelPersonType _VMPersonType;
+        #endregion
+        
+        #region Properties
+        public ViewModelPersonType VMPersonType { get => _VMPersonType; private set => SetProperty(nameof(VMPersonType), ref _VMPersonType, value); }
+        #endregion
+
         #region Constructors
         public ViewModelPeople()
         {
+            VMPersonType = new ViewModelPersonType();
             Header = "Personnes";  
             ItemsSource.Add(new Person { Firstname = "Dylan",   Lastname = "CHATAGNIER" });
             ItemsSource.Add(new Person { Firstname = "JM",      Lastname = "Gégé" });

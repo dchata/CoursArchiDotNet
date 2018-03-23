@@ -9,6 +9,25 @@
         Height="450" 
         Width="800">
 
+  <!--<Controls:MetroWindow.RightWindowCommands>
+  <Controls:WindowCommands>
+    <Button Content="settings" />
+    <Button>
+      <StackPanel Orientation="Horizontal">
+        <Rectangle Width="20"
+                   Height="20">
+          <Rectangle.OpacityMask>
+            <VisualBrush Stretch="Fill"/>
+          </Rectangle.OpacityMask>
+        </Rectangle>
+        <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="deploy cupcakes" />
+      </StackPanel>
+    </Button>
+  </Controls:WindowCommands>
+</Controls:MetroWindow.RightWindowCommands>-->
+  
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"/>

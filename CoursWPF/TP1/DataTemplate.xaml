@@ -5,7 +5,7 @@
                     xmlns:viewModels="clr-namespace:CoursWPF1.ViewModels">
 
   <DataTemplate DataType="{x:Type viewModels:ViewModelPeople}" x:Key="ViewModelPeopleTemplate">
-    <views:ListPeople/>
+    <views:DataGridPeople/>
   </DataTemplate>
 
   <DataTemplate DataType="{x:Type viewModels:ViewModelPersonType}" x:Key="ViewModelPersonTypeTemplate">

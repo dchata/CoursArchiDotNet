@@ -22,11 +22,13 @@
               <StackPanel>
                 <TextBlock Text="{Binding Lastname}" Style="{StaticResource TextBlockListBoxItemRed}"/>
                 <TextBlock Text="{Binding Firstname}" Style="{StaticResource TextBlockListBoxItem}"/>
+                <TextBlock Text="{Binding Type.Name}" Style="{StaticResource TextBlockListBoxItem}"/>
               </StackPanel>
 
               <StackPanel Visibility="{Binding Path=IsChecked, ElementName=toggleBEnabled, Converter={StaticResource BoolToVisibilitySharedConverter}}">
                 <TextBox Text="{Binding Lastname}"/>
                 <TextBox Text="{Binding Firstname}"/>
+                <ComboBox SelectedItem="{Binding Type}" ItemsSource="{Binding DataContext.VMPersonType.ItemsSource, RelativeSource={RelativeSource AncestorType=ListBox, Mode=FindAncestor}}" DisplayMemberPath="Name"/>
                 <Button Content="Supprimer" Width="100" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" CommandParameter="{Binding}"/>
               </StackPanel>
             </StackPanel>
@@ -34,6 +36,5 @@
         </DataTemplate>
       </ListBox.ItemTemplate>
     </ListBox>
-
   </Grid>
 </UserControl>
