@@ -1,0 +1,65 @@
+﻿using System.Collections;
+using System.Windows;
+using System.Windows.Controls.Primitives;
+using System.Linq;
+
+namespace MVVMLib.Controls
+{
+    public class SelectedItemsHelper
+    {
+        //#region Fields
+        //private MultiSelector _MultiSelector;
+        //private IList _SelectedItems;
+        //#endregion
+
+        #region Dependencies Properties
+        public static IList GetSelectedItems(DependencyObject obj)
+        {
+            return (IList)obj.GetValue(SelectedItemsProperty);
+        }
+
+        public static void SetSelectedItems(DependencyObject obj, IList value) => obj.SetValue(SelectedItemsProperty, value);
+
+        // Using a DependencyProperty as the backing store for SelectedItems.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SelectedItemsProperty =
+            DependencyProperty.RegisterAttached("SelectedItems", typeof(IList), typeof(SelectedItemsHelper), new PropertyMetadata(null, OnSelectedItemsChanged));
+
+        #endregion
+
+        //#region Constructors
+        //public SelectedItemsHelper(MultiSelector multiSelector, IList selectedItems)
+        //{
+        //    _MultiSelector = multiSelector;
+        //    _SelectedItems = selectedItems;
+        //}
+        ////#endregion
+
+        #region Methods
+        private static void OnSelectedItemsChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (sender is MultiSelector multiSelector && e.NewValue is IList selectedItems)
+            {
+                multiSelector.SelectionChanged -= MultiSelector_SelectionChanged;
+                multiSelector.SelectionChanged += MultiSelector_SelectionChanged;
+            }
+        }
+
+        private static void MultiSelector_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (sender is MultiSelector multiSelector && GetSelectedItems(multiSelector) is IList selectedItems)
+            {
+                foreach (object item in multiSelector.SelectedItems.Cast<object>().Except(selectedItems.Cast<object>()).ToList())
+                {
+                    selectedItems.Add(item);
+                }
+
+                foreach (object item in selectedItems.Cast<object>().Except(multiSelector.SelectedItems.Cast<object>()).ToList())
+                {
+                    selectedItems.Remove(item);
+                }
+            }
+        }
+        #endregion
+
+    }
+}

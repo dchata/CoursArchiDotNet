@@ -3,11 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CoursWPF1.Views"
+             xmlns:controls="clr-namespace:MVVMLib.Controls;assembly=MVVMLib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
   <Grid>
-    <DataGrid ItemsSource="{Binding ItemsSource}" SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="False">
+    <DataGrid ItemsSource="{Binding ItemsSource}" SelectedItem="{Binding SelectedItem}" controls:SelectedItemsHelper.SelectedItems="{Binding SelectedItems}"
+              AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="True" IsReadOnly="False" 
+              Style="{StaticResource AzureDataGrid}" Margin="10,20,10,0">
+      
       <DataGrid.Columns>
         <DataGridTextColumn Header="Prénom" Binding="{Binding Firstname}"/>
         <DataGridTextColumn Header="Nom"    Binding="{Binding Lastname}"/>
@@ -22,6 +25,13 @@
               <ComboBox SelectedItem="{Binding Type}" ItemsSource="{Binding DataContext.VMPersonType.ItemsSource, RelativeSource={RelativeSource AncestorType=DataGrid, Mode=FindAncestor}}" DisplayMemberPath="Name"/>
             </DataTemplate>
           </DataGridTemplateColumn.CellEditingTemplate>
+        </DataGridTemplateColumn>
+        <DataGridTemplateColumn Header="Supprimer">
+          <DataGridTemplateColumn.CellTemplate>
+            <DataTemplate>
+              <Button Content="X" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" CommandParameter="{Binding}"/>
+            </DataTemplate>
+          </DataGridTemplateColumn.CellTemplate>
         </DataGridTemplateColumn>
       </DataGrid.Columns>
     </DataGrid>

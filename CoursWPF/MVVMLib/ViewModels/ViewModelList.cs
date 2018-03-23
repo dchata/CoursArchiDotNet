@@ -11,8 +11,9 @@ namespace MVVMLib.ViewModels
     {
         #region Fields
         private ObservableCollection<T> _ItemsSource;
-        private DelegateCommand _AddItemCommand;
+        private ObservableCollection<T> _SelectedItems;
         private T _SelectedItem;
+        private DelegateCommand _AddItemCommand;
         private DelegateCommand _RemoveItemCommand;
         #endregion
 
@@ -20,6 +21,7 @@ namespace MVVMLib.ViewModels
         public DelegateCommand AddItemCommand { get => _AddItemCommand; set => _AddItemCommand = value; }
         public DelegateCommand RemoveItemCommand { get => _RemoveItemCommand; set => _RemoveItemCommand = value; }
         public ObservableCollection<T> ItemsSource { get => _ItemsSource; private set => SetProperty(nameof(ItemsSource), ref _ItemsSource, value); }
+        public ObservableCollection<T> SelectedItems { get => _SelectedItems; private set => SetProperty(nameof(SelectedItems), ref _SelectedItems, value); }
         public T SelectedItem { get => _SelectedItem; set => SetProperty(nameof(SelectedItem), ref _SelectedItem, value); }
         #endregion
 
@@ -32,6 +34,7 @@ namespace MVVMLib.ViewModels
             #endregion
 
             ItemsSource = new ObservableCollection<T>();
+            SelectedItems = new ObservableCollection<T>();
         }
 
         #endregion
