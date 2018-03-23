@@ -27,13 +27,5 @@ namespace CoursWPF1
             DataContext = new ViewModels.ViewModelMain();
             InitializeComponent();
         }
-
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (tItemPeople.IsSelected)
-                ((ViewModelMain)DataContext).SelectedViewModel = ((ViewModelMain)DataContext).VMPeople;
-            else if (tItemPersonType.IsSelected)
-                ((ViewModelMain)DataContext).SelectedViewModel = ((ViewModelMain)DataContext).VMPersonType;
-        }
     }
 }

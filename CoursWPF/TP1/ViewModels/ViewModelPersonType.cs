@@ -14,6 +14,7 @@ namespace CoursWPF1.ViewModels
         #region Constructors
         public ViewModelPersonType()
         {
+            Header = "Types de personnes";
             ItemsSource.Add(new PersonType { Name = "Coworkers" });
             ItemsSource.Add(new PersonType { Name = "Family" });
         }
@@ -23,8 +24,8 @@ namespace CoursWPF1.ViewModels
         protected override void AddItem_Execute(object parameter)
         {
             base.AddItem_Execute(parameter);
-
-            SelectedItem.Name = "New";
+            
+            SelectedItem.Name = "Nouveau type";
         }
         #endregion
     }

@@ -7,7 +7,7 @@ namespace MVVMLib.ViewModels
     /// Le type T doit être un ObservableObject et avoir un constructeur vide
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class ViewModelList<T> : ViewModelBase where T : ObservableObject, new()
+    public class ViewModelList<T> : ViewModelBase where T : ObservableObject, new()
     {
         #region Fields
         private ObservableCollection<T> _ItemsSource;

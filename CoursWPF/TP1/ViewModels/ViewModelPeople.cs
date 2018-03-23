@@ -16,6 +16,7 @@ namespace CoursWPF1.ViewModels
         #region Constructors
         public ViewModelPeople()
         {
+            Header = "Personnes";  
             ItemsSource.Add(new Person { Firstname = "Dylan",   Lastname = "CHATAGNIER" });
             ItemsSource.Add(new Person { Firstname = "JM",      Lastname = "Gégé" });
             ItemsSource.Add(new Person { Firstname = "Truc",    Lastname = "Bidule" });
@@ -26,7 +27,7 @@ namespace CoursWPF1.ViewModels
         protected override void AddItem_Execute(object parameter)
         {
             base.AddItem_Execute(parameter);
-
+            
             SelectedItem.Firstname = "Test";
             SelectedItem.Lastname = "DC";
         }

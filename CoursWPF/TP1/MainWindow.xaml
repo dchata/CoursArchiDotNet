@@ -14,13 +14,17 @@
     </Grid.RowDefinitions>
 
     <Menu>
-      <MenuItem Header="Fichier"/>
-      <MenuItem Header="Ajouter" Command="{Binding SelectedViewModel.AddItemCommand}"/>
-      <MenuItem Header="Supprimer" Command="{Binding SelectedViewModel.RemoveItemCommand}"/>
+      <MenuItem Header="Fichier">
+        <MenuItem Header="Fermer l'onglet" Command="{Binding RemoveItemCommand}"/>
+      </MenuItem>
+      <MenuItem Header="Edition">
+        <MenuItem Header="Ajouter" Command="{Binding SelectedItem.AddItemCommand}"/>
+        <MenuItem Header="Supprimer" Command="{Binding SelectedItem.RemoveItemCommand}"/>
+      </MenuItem>
     </Menu>
 
-    <TabControl Grid.Row="1" SelectionChanged="TabControl_SelectionChanged">
-      <TabItem x:Name="tItemPeople" Header="Personnes" DataContext="{Binding VMPeople}">
+    <TabControl Grid.Row="1" ItemsSource="{Binding ItemsSource}" SelectedItem="{Binding SelectedItem}" ItemContainerStyle="{StaticResource CloseTabItem}">
+      <!--<TabItem x:Name="tItemPeople" Header="Personnes" DataContext="{Binding VMPeople}">
         <ListBox ItemsSource="{Binding ItemsSource}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
           <ListBox.ItemTemplate>
             <DataTemplate>
@@ -76,7 +80,7 @@
             </DataTemplate>
           </ListBox.ItemTemplate>
         </ListBox>
-      </TabItem>
+      </TabItem>-->
     </TabControl>
   </Grid>
 </Window>

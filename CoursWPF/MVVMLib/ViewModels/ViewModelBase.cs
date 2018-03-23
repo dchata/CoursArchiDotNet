@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MVVMLib.ViewModels
 {
-    public abstract class ViewModelBase : ObservableObject
+    public class ViewModelBase : ObservableObject
     {
         #region Fields
         private object _Header;

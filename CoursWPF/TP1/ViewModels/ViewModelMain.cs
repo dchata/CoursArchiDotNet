@@ -9,26 +9,23 @@ using MVVMLib.ViewModels;
 
 namespace CoursWPF1.ViewModels
 {
-    public class ViewModelMain : ViewModelBase
+    public class ViewModelMain : ViewModelList<ViewModelBase>
     {
         #region Fields
         private ViewModelPeople _VMPeople;
         private ViewModelPersonType _VMPersonType;
-        private ViewModelBase _SelectedViewModel;
-        #endregion
-
-        #region Properties
-        public ViewModelPeople VMPeople { get => _VMPeople; private set => SetProperty(nameof(VMPeople), ref _VMPeople, value); }
-        public ViewModelPersonType VMPersonType { get => _VMPersonType; private set => SetProperty(nameof(VMPersonType), ref _VMPersonType, value); }
-        public ViewModelBase SelectedViewModel { get => _SelectedViewModel; set => SetProperty(nameof(SelectedViewModel), ref _SelectedViewModel, value); }
         #endregion
 
         #region Constructors
         public ViewModelMain()
         {
-            VMPeople = new ViewModelPeople();
-            VMPersonType = new ViewModelPersonType();
-            SelectedViewModel = VMPeople;
+            _VMPeople = new ViewModelPeople();
+            _VMPersonType = new ViewModelPersonType();
+
+            ItemsSource.Add(_VMPeople);
+            ItemsSource.Add(_VMPersonType);
+
+            SelectedItem = _VMPeople;
         }
         #endregion
     }
