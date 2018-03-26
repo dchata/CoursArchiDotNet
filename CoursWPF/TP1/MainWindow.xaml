@@ -18,14 +18,13 @@
       <MenuItem Header="Fichier">
         <MenuItem Header="Afficher personnes" Command="{Binding AddItemCommand}" CommandParameter="{x:Type viewModels:ViewModelPeople}"/>
         <MenuItem Header="Afficher types de personnes" Command="{Binding AddItemCommand}" CommandParameter="{x:Type viewModels:ViewModelPersonType}"/>
-        <!--<MenuItem Header="Fermer l'onglet" Command="{Binding RemoveItemCommand}"/>-->
+        <Separator/>
+        <MenuItem Header="Sauvegarder" Command="{Binding SelectedItem.SaveCommand}"/>
+        <MenuItem Header="Rafraîchir" Command="{Binding SelectedItem.RefreshCommand}"/>
       </MenuItem>
       <MenuItem Header="Edition">
         <MenuItem Header="Ajouter" Command="{Binding SelectedItem.AddItemCommand}"/>
         <MenuItem Header="Supprimer" Command="{Binding SelectedItem.RemoveItemCommand}"/>
-        <Separator/>
-        <MenuItem Header="Sauvegarder" Command="{Binding SelectedItem.SaveCommand}"/>
-        <MenuItem Header="Rafraîchir" Command="{Binding SelectedItem.RefreshCommand}"/>
       </MenuItem>
     </Menu>
 
