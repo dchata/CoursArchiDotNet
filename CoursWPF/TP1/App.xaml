@@ -9,7 +9,6 @@
     <!-- Permet de fusioner un dictrionnaire de ressource créé dans un fichier externe -->
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Styles.xaml"/>
         <ResourceDictionary Source="DataTemplate.xaml"/>
         <!-- Resource Dictrionnaries de Mahapps -->
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
@@ -20,6 +19,7 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedTabControl.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/FlatButton.xaml" />
+        <ResourceDictionary Source="Styles.xaml"/>
       </ResourceDictionary.MergedDictionaries>
 
       <!-- On peut instancier des convetters dans le dictionnaire de ressources de l'application -->

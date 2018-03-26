@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,6 +65,17 @@ namespace MVVMLib.ViewModels
         {
             _SaveCommand = new DelegateCommand(Save_Execute, Save_CanExecute);
             _RefreshCommand = new DelegateCommand(Refresh_Execute, Refresh_CanExecute);
+        }
+
+        protected void RefreshDbSet<IEntity>(DbSet<IEntity> dbSet) where IEntity : class
+        {
+            foreach (IEntity entity in dbSet.Local.ToList())
+            {
+                DbEntityEntry<IEntity> entry = Entities.Entry<IEntity>(entity);
+
+                if (entry.State == EntityState.Unchanged)
+                    entry.Reload();
+            }
         }
 
         #region Commands

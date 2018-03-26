@@ -18,7 +18,7 @@
               </Grid.ColumnDefinitions>
               <TextBlock Text="{Binding}" FontSize="15" TextTrimming="CharacterEllipsis" ToolTip="{Binding}"/>
               <Button Grid.Column="1" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl}}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=TabItem, Mode=FindAncestor}}">
-                <fa:ImageAwesome Icon="WindowClose" Height="12"/>
+                <fa:ImageAwesome Icon="WindowClose" Height="12" Foreground="{StaticResource AccentBaseColorBrush}"/>
               </Button>
             </Grid>
           </DataTemplate>

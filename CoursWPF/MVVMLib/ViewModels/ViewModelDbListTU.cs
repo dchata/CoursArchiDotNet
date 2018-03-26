@@ -73,6 +73,15 @@ namespace MVVMLib.ViewModels
         }
         protected virtual bool RemoveItem_CanExecute(object parameter) => SelectedItems.Any() || parameter is U;
         #endregion
+
+        #region Refresh 
+        protected override void Refresh_Execute(object parameter)
+        {
+            base.Refresh_Execute(parameter);
+
+            RefreshDbSet(DbSet);
+        }
+        #endregion
         #endregion
     }
 }

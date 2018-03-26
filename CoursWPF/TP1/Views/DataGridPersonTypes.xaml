@@ -18,7 +18,7 @@
           <DataGridTemplateColumn.CellTemplate>
             <DataTemplate>
               <Button Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" CommandParameter="{Binding}">
-                <fa:ImageAwesome Icon="Trash" Height="12"/>
+                <fa:ImageAwesome Icon="Trash" Height="12" Foreground="{StaticResource AccentBaseColorBrush}"/>
               </Button>
             </DataTemplate>
           </DataGridTemplateColumn.CellTemplate>
