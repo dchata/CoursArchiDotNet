@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:CoursWPF1">
+                    xmlns:local="clr-namespace:CoursWPF1"
+                    xmlns:fa="http://schemas.fontawesome.io/icons/">
 
 
   <!-- Style pour btn fermer onglet -->
@@ -16,7 +17,9 @@
                 <ColumnDefinition Width="Auto"/>
               </Grid.ColumnDefinitions>
               <TextBlock Text="{Binding}" FontSize="15" TextTrimming="CharacterEllipsis" ToolTip="{Binding}"/>
-              <Button Grid.Column="1" Content="X" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl}}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=TabItem, Mode=FindAncestor}}"/>
+              <Button Grid.Column="1" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl}}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=TabItem, Mode=FindAncestor}}">
+                <fa:ImageAwesome Icon="WindowClose" Height="12"/>
+              </Button>
             </Grid>
           </DataTemplate>
         </Setter.Value>
