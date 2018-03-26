@@ -9,7 +9,8 @@ using System.Windows;
 
 namespace MVVMLib.ViewModels
 {
-    public class ViewModelDbT<T> where T : DbContext, new()
+    public class ViewModelDb<T> : ViewModelBase
+        where T : DbContext, new()
     {
         #region Fields
         private T _Entities;
@@ -36,7 +37,7 @@ namespace MVVMLib.ViewModels
         /// <summary>
         /// Initialise une nouvelle instance de la classe <see cref="ViewModelDbT{T}"/>
         /// </summary>
-        public ViewModelDbT()
+        public ViewModelDb()
         {
             InitEntities();
             InitCommands();
@@ -46,7 +47,7 @@ namespace MVVMLib.ViewModels
         /// Initialise une nouvelle instance de la classe <see cref="ViewModelDbT{T}"/> avec un contexte <see cref="T"/> spécifique
         /// </summary>
         /// <param name="entities"> Instance du contexte <see cref="T"/> </param>
-        public ViewModelDbT(T entities)
+        public ViewModelDb(T entities)
         {
             _Entities = entities;
             InitCommands();

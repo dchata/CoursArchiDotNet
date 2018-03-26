@@ -57,7 +57,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\ViewModelDbT.cs" />
-    <Compile Include="ViewModels\ViewModelList.cs" />
+    <Compile Include="ViewModels\ViewModelDbListTU.cs" />
+    <Compile Include="ViewModels\ViewModelListT.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
