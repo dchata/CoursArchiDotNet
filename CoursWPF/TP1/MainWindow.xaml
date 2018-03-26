@@ -9,25 +9,6 @@
         Height="450" 
         Width="800">
 
-  <!--<Controls:MetroWindow.RightWindowCommands>
-  <Controls:WindowCommands>
-    <Button Content="settings" />
-    <Button>
-      <StackPanel Orientation="Horizontal">
-        <Rectangle Width="20"
-                   Height="20">
-          <Rectangle.OpacityMask>
-            <VisualBrush Stretch="Fill"/>
-          </Rectangle.OpacityMask>
-        </Rectangle>
-        <TextBlock Margin="4 0 0 0"
-                   VerticalAlignment="Center"
-                   Text="deploy cupcakes" />
-      </StackPanel>
-    </Button>
-  </Controls:WindowCommands>
-</Controls:MetroWindow.RightWindowCommands>-->
-  
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"/>
@@ -37,11 +18,14 @@
       <MenuItem Header="Fichier">
         <MenuItem Header="Afficher personnes" Command="{Binding AddItemCommand}" CommandParameter="{x:Type viewModels:ViewModelPeople}"/>
         <MenuItem Header="Afficher types de personnes" Command="{Binding AddItemCommand}" CommandParameter="{x:Type viewModels:ViewModelPersonType}"/>
-        <MenuItem Header="Fermer l'onglet" Command="{Binding RemoveItemCommand}"/>
+        <!--<MenuItem Header="Fermer l'onglet" Command="{Binding RemoveItemCommand}"/>-->
       </MenuItem>
       <MenuItem Header="Edition">
         <MenuItem Header="Ajouter" Command="{Binding SelectedItem.AddItemCommand}"/>
         <MenuItem Header="Supprimer" Command="{Binding SelectedItem.RemoveItemCommand}"/>
+        <Separator/>
+        <MenuItem Header="Sauvegarder" Command="{Binding SelectedItem.SaveCommand}"/>
+        <MenuItem Header="Rafraîchir" Command="{Binding SelectedItem.RefreshCommand}"/>
       </MenuItem>
     </Menu>
 

@@ -32,6 +32,7 @@ namespace MVVMLib.ViewModels
         {
             InitCommands();
             SelectedItems = new ObservableCollection<U>();
+            RefreshCommand.Execute(null);
         }
 
         public ViewModelDbList(T entities)
@@ -39,6 +40,7 @@ namespace MVVMLib.ViewModels
         {
             InitCommands();
             SelectedItems = new ObservableCollection<U>();
+            RefreshCommand.Execute(null);
         }
         #endregion
 

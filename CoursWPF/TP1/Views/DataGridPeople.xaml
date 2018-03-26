@@ -12,8 +12,8 @@
               AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="True" IsReadOnly="False" 
               Style="{StaticResource AzureDataGrid}" Margin="10,20,10,0">
       <DataGrid.Columns>
-        <DataGridTextColumn Header="Prénom" Binding="{Binding Firstname}"/>
-        <DataGridTextColumn Header="Nom"    Binding="{Binding Lastname}"/>
+        <DataGridTextColumn Header="Prénom" Binding="{Binding FirstName}"/>
+        <DataGridTextColumn Header="Nom"    Binding="{Binding LastName}"/>
         <DataGridTemplateColumn Header="Type">
           <DataGridTemplateColumn.CellTemplate>
             <DataTemplate>

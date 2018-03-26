@@ -1,6 +1,6 @@
-﻿using MVVMLib.Core;
+﻿using DBLib;
+using MVVMLib.Core;
 using MVVMLib.ViewModels;
-using CoursWPF1.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,7 +11,7 @@ using System.Windows;
 
 namespace CoursWPF1.ViewModels
 {
-    public class ViewModelPeople : ViewModelList<Person>
+    public class ViewModelPeople : ViewModelDbList<AddressBookEntities, Person>
     {
         #region Fields
         private ViewModelPersonType _VMPersonType;
@@ -24,7 +24,7 @@ namespace CoursWPF1.ViewModels
         #region Constructors
         public ViewModelPeople()
         {
-            VMPersonType = new ViewModelPersonType();
+            VMPersonType = new ViewModelPersonType(Entities);
             Header = "Personnes";
         }
         #endregion
@@ -34,8 +34,15 @@ namespace CoursWPF1.ViewModels
         {
             base.AddItem_Execute(parameter);
             
-            SelectedItem.Firstname = "Test";
-            SelectedItem.Lastname = "DC";
+            SelectedItem.FirstName = "Test";
+            SelectedItem.LastName = "DC";
+        }
+
+        protected override void Refresh_Execute(object parameter)
+        {
+            base.Refresh_Execute(parameter);
+
+            DbSet.Include(nameof(Person.PersonType)).ToList();
         }
         #endregion
     }

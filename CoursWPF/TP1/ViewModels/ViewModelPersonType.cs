@@ -1,4 +1,4 @@
-﻿using CoursWPF1.Models;
+﻿using DBLib;
 using MVVMLib.Core;
 using MVVMLib.ViewModels;
 using System;
@@ -9,12 +9,18 @@ using System.Threading.Tasks;
 
 namespace CoursWPF1.ViewModels
 {
-    public class ViewModelPersonType : ViewModelList<PersonType>
+    public class ViewModelPersonType : ViewModelDbList<AddressBookEntities, PersonType>
     {
         #region Constructors
         public ViewModelPersonType()
         {
             Header = "Types de personnes";
+        }
+
+        public ViewModelPersonType(AddressBookEntities entities)
+            : base(entities)
+        {
+            this.Header = "Types de personnes";
         }
         #endregion
 
@@ -24,6 +30,13 @@ namespace CoursWPF1.ViewModels
             base.AddItem_Execute(parameter);
             
             SelectedItem.Name = "Nouveau type";
+        }
+
+        protected override void Refresh_Execute(object parameter)
+        {
+            base.Refresh_Execute(parameter);
+
+            DbSet.ToList();
         }
         #endregion
     }

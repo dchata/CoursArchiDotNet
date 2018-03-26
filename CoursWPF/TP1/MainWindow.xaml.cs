@@ -1,5 +1,4 @@
-﻿using CoursWPF1.Models;
-using CoursWPF1.ViewModels;
+﻿using CoursWPF1.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
