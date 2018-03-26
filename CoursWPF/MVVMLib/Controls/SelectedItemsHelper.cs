@@ -62,6 +62,5 @@ namespace MVVMLib.Controls
             catch (System.Exception) { }
         }
         #endregion
-
     }
 }

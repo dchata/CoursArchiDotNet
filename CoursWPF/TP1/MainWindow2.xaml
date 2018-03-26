@@ -4,6 +4,7 @@
         xmlns:local="clr-namespace:CoursWPF1"
         xmlns:templateSelectors="clr-namespace:CoursWPF1.TemplateSelector"
         xmlns:viewModels="clr-namespace:CoursWPF1.ViewModels"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="Cours WPF 2" 
         Height="450" 
@@ -11,11 +12,26 @@
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="80"/>
-      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
-    <Grid Grid.Row="0">
-
+    <Grid Grid.Row="0" Background="LightGray">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="80"/>
+        <ColumnDefinition Width="80"/>
+        <ColumnDefinition Width="80"/>
+        <ColumnDefinition Width="80"/>
+        <ColumnDefinition Width="80"/>
+      </Grid.ColumnDefinitions>
+      <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding}">
+        <fa:ImageAwesome Icon="Home" Height="50" Width="50"/>
+      </Button>
+      <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding}">
+        <fa:ImageAwesome Icon="Plus" Height="50" Width="50"/>
+      </Button>
+      <Button Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding}">
+        <fa:ImageAwesome Icon="Trash" Height="50" Width="50"/>
+      </Button>
     </Grid>
     
     <ContentControl Grid.Row="1" Content="{Binding SelectedViewModel}">
