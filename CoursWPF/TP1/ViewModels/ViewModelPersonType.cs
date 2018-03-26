@@ -15,8 +15,6 @@ namespace CoursWPF1.ViewModels
         public ViewModelPersonType()
         {
             Header = "Types de personnes";
-            ItemsSource.Add(new PersonType { Name = "Coworkers" });
-            ItemsSource.Add(new PersonType { Name = "Family" });
         }
         #endregion
 
