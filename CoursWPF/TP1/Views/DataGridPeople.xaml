@@ -17,7 +17,7 @@
         <DataGridTemplateColumn Header="Type"       SortMemberPath="PersonType.Name">
           <DataGridTemplateColumn.CellTemplate>
             <DataTemplate>
-              <TextBlock Text="{Binding PersonType.Name}"/>
+              <TextBlock Text="{Binding PersonType.Name}" HorizontalAlignment="Center"/>
             </DataTemplate>
           </DataGridTemplateColumn.CellTemplate>
           <DataGridTemplateColumn.CellEditingTemplate>
@@ -32,7 +32,7 @@
         <DataGridTemplateColumn Header="Date de naissance">
           <DataGridTemplateColumn.CellTemplate>
             <DataTemplate>
-              <TextBlock Text="{Binding Birthdate, StringFormat=dd-MM-yy}" />
+              <TextBlock Text="{Binding Birthdate, StringFormat=dd-MM-yy}" HorizontalAlignment="Center"/>
             </DataTemplate>
           </DataGridTemplateColumn.CellTemplate>
           <DataGridTemplateColumn.CellEditingTemplate>
@@ -42,10 +42,13 @@
           </DataGridTemplateColumn.CellEditingTemplate>
         </DataGridTemplateColumn>
         <DataGridTextColumn     Header="Mail"        Binding="{Binding EMail}"/>
-        <DataGridTemplateColumn Header="Supprimer"  IsReadOnly="True">
+        <DataGridTemplateColumn IsReadOnly="True">
+          <DataGridTemplateColumn.Header>
+            <fa:ImageAwesome Icon="Trash" Height="12" Foreground="{StaticResource AccentBaseColorBrush}"/>
+          </DataGridTemplateColumn.Header>
           <DataGridTemplateColumn.CellTemplate>
             <DataTemplate>
-              <Button Command="{Binding DataContext.DeleteItemCommand, ElementName=_DataGrid}" CommandParameter="{Binding}">
+              <Button Command="{Binding DataContext.RemoveItemCommand, ElementName=_DataGrid}" CommandParameter="{Binding}">
                 <fa:ImageAwesome Icon="Trash" Height="12" Foreground="{StaticResource AccentBaseColorBrush}"/>
               </Button>
             </DataTemplate>

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TP1"
              xmlns:converters="clr-namespace:CoursWPF1.Converters"
-             StartupUri="MainWindow.xaml">
+             StartupUri="MainWindow2.xaml">
   <Application.Resources>
 
     <!-- Permet de fusioner un dictrionnaire de ressource créé dans un fichier externe -->
