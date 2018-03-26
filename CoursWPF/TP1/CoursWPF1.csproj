@@ -83,6 +83,7 @@
     <Compile Include="Models\PersonType.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="TemplateSelector\ViewModelTemplateSelector.cs" />
+    <Compile Include="ViewModels\ViewModelHome.cs" />
     <Compile Include="ViewModels\ViewModelMain2.cs" />
     <Compile Include="ViewModels\ViewModelMain.cs" />
     <Compile Include="ViewModels\ViewModelPeople.cs" />
@@ -92,6 +93,9 @@
     </Compile>
     <Compile Include="Views\DataGridPersonTypes.xaml.cs">
       <DependentUpon>DataGridPersonTypes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ListPersonTypes.xaml.cs">
       <DependentUpon>ListPersonTypes.xaml</DependentUpon>
@@ -130,6 +134,10 @@
     <Page Include="Views\DataGridPersonTypes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ListPersonTypes.xaml">
       <Generator>MSBuild:Compile</Generator>

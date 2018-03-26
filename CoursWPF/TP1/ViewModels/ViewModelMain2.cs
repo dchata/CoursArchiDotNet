@@ -21,7 +21,7 @@ namespace CoursWPF1.ViewModels
         #region Constructors
         public ViewModelMain2()
         {
-            SelectedViewModel = new ViewModelPeople();
+            SelectedViewModel = new ViewModelHome();
         }
         #endregion
 
